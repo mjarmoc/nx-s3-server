@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="readme/nx-s3-server-transparent.png" width="250px">
+<img src="readme/nx-s3-server-transparent.png" width="400px">
 
 # NX S3 Server
 
