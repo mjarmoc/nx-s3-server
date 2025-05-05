@@ -1,22 +1,14 @@
+<div align="center">
+
+[![ NX S3 Server]["readme/nx-s3-server-transparent.png]][]
+
 # NX S3 Server
 
-<table>
-    <tr>
-        <td width="50%" style="border:0" rowspan="2">
-            <img src="readme/image.png" width="400px">
-        </td>
-        <td width="50%" style="vertical-align: top; border: 0">
-                NXS3Server is a lightweight self-hosted cache server for Nx written in GO.<br/>
-                It is using AWS S3 Buckets as a backend.
-        </td>
-    </tr>
-  <tr>
-    <td>
-      <img src="readme/Nx_dark.svg" style="display: inline-block" width="80px">
-      <img src="readme/Go_dark.svg" style="display: inline-block" width="80px">
-    </td>
-  </tr>
-</table>
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/mjarmoc/nx-s3-server?style=flat)
+
+NXS3Server is a lightweight self-hosted cache server for Nx written in GO. It is using AWS S3 Buckets as a backend.
+
+</div>
 
 ## Installation
 
