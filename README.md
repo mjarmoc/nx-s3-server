@@ -1,6 +1,6 @@
 <div align="center">
 
-![ NX S3 Server][readme/nx-s3-server-transparent.png]
+![ NX S3 Server](readme/nx-s3-server-transparent.png)
 
 # NX S3 Server
 
