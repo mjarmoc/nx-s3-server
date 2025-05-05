@@ -8,7 +8,7 @@
         <td width="50%" style="vertical-align: top" border="0">
             <table>
               <tr>
-                <td>NXS3Server is a lightweight self-hosted cache server for Nx written in GO. 
+                <td colspan="2">NXS3Server is a lightweight self-hosted cache server for Nx written in GO. 
               It is using AWS S3 Buckets as a backend.
                 </td>
               </tr>
