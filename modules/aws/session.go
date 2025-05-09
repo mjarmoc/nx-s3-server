@@ -16,7 +16,7 @@ func createSession() (*AWSSession.Session, error) {
 	
 	config := config.GetConfig()
 	region := config.GetString("aws.region")
-	accessKey := os.Getenv("AWS_ACCESS_KEY_ID")
+	accessKey := os.Getenv("AWS_ACCESS_KEY_ID") 
 	secretKey := os.Getenv("AWS_SECRET_ACCESS_KEY")
 	endpoint := config.GetString("aws.endpoint")
 
