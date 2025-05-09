@@ -1,8 +1,9 @@
 package aws
 
 import (
-	"nx-s3-server/config"
 	"os"
+
+	"github.com/mjarmoc/x-s3-server/config"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"

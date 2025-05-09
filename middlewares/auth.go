@@ -1,6 +1,7 @@
 package middlewares
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -8,11 +9,12 @@ import (
 
 func AuthMiddleware() gin.HandlerFunc {
 	secret := os.Getenv("NX_S3_TOKEN")
+	formattedSecret := fmt.Sprintf("Bearer %s", secret)
 	if len(secret) == 0 {
 		panic("No Secret found")
 	}
 	return func(c *gin.Context) {
-		token := c.Request.Header.Get("bearer")
+		token := c.Request.Header.Get("Authorization")
 		if c.Request.URL.Path == "/v1/health" {
 			return
 		}
@@ -20,7 +22,7 @@ func AuthMiddleware() gin.HandlerFunc {
 			c.AbortWithStatus(401)
 			return
 		}
-		if token != secret {
+		if token != formattedSecret {
 			c.AbortWithStatus(401)
 			return
 		}

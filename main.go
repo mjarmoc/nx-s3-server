@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"nx-s3-server/config"
-	"nx-s3-server/modules/aws"
-	"nx-s3-server/server"
+	"github.com/mjarmoc/x-s3-server/config"
+	"github.com/mjarmoc/x-s3-server/modules/aws"
+	"github.com/mjarmoc/x-s3-server/server"
 )
 
 func main() {

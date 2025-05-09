@@ -3,7 +3,8 @@ package aws
 import (
 	"bytes"
 	"io"
-	"nx-s3-server/config"
+
+	"github.com/mjarmoc/x-s3-server/config"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"

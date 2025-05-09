@@ -5,7 +5,7 @@ import (
 	"io"
 	"net/http"
 
-	s3 "nx-s3-server/modules/aws"
+	s3 "github.com/mjarmoc/x-s3-server/modules/aws"
 
 	"github.com/gin-gonic/gin"
 )

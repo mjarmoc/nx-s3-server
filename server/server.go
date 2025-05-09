@@ -3,7 +3,8 @@ package server
 import (
 	"fmt"
 	"net/http"
-	"nx-s3-server/config"
+
+	"github.com/mjarmoc/x-s3-server/config"
 
 	"github.com/gin-gonic/gin"
 )
