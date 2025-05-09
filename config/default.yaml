@@ -1,6 +1,0 @@
-server:
-  address: localhost:8888
-aws:
-  bucket: test
-  region: us-east-2
-  endpoint: http://localhost:4566

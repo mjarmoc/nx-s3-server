@@ -12,12 +12,13 @@ import (
 
 func main() {
 	// ToDo Move to DotEnv
-	os.Setenv("NX_S3_TOKEN", "abcdef")
-	os.Setenv("AWS_ACCESS_KEY_ID", "abcdef")
-	os.Setenv("AWS_SECRET_ACCESS_KEY", "abcdef")
-
 
 	environment := flag.String("e", "development", "")
+	if *environment == "development" {
+		os.Setenv("NX_S3_TOKEN", "abcdef")
+		os.Setenv("AWS_ACCESS_KEY_ID", "abcdef")
+		os.Setenv("AWS_SECRET_ACCESS_KEY", "abcdef")
+	}
 	flag.Usage = func() {
 		fmt.Println("Usage: server -e {mode}")
 		os.Exit(1)
