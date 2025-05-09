@@ -18,6 +18,7 @@ It is using AWS S3 Buckets as a backend.
 - [x] Token based Authorisation
 - [x] Endpoint to get all Cache Artifacts
 - [x] Healthcheck
+- [ ] Implement OTEL
 
 ## Installation
 
