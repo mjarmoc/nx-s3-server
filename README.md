@@ -12,6 +12,11 @@ It is using AWS S3 Buckets as a backend.
 
 </div>
 
+## Features
+
+- [x] Fully satisfies specification: [https://nx.dev/recipes/running-tasks/self-hosted-caching#build-your-own-caching-server]
+- [x] Endpoint to get all Cache Artifats
+
 ## Installation
 
 ```sh
