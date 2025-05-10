@@ -1,11 +1,11 @@
 package server
 
 import (
-	"github.com/mjarmoc/x-s3-server/modules/cache"
-	"github.com/mjarmoc/x-s3-server/modules/health"
+	"github.com/mjarmoc/nx-s3-server/modules/cache"
+	"github.com/mjarmoc/nx-s3-server/modules/health"
 
 	"github.com/gin-gonic/gin"
-	"github.com/mjarmoc/x-s3-server/middlewares"
+	"github.com/mjarmoc/nx-s3-server/middlewares"
 )
 
 func NewRouter() *gin.Engine {

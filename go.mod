@@ -1,4 +1,4 @@
-module github.com/mjarmoc/x-s3-server
+module github.com/mjarmoc/nx-s3-server
 
 go 1.24
 

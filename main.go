@@ -5,13 +5,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mjarmoc/x-s3-server/config"
-	"github.com/mjarmoc/x-s3-server/modules/aws"
-	"github.com/mjarmoc/x-s3-server/server"
+	"github.com/mjarmoc/nx-s3-server/config"
+	"github.com/mjarmoc/nx-s3-server/modules/aws"
+	"github.com/mjarmoc/nx-s3-server/server"
 )
 
 func main() {
-	// ToDo Move to DotEnv
 
 	environment := flag.String("e", "development", "")
 	if *environment == "development" {
