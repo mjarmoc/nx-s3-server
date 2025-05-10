@@ -1,17 +1,21 @@
-FROM golang:1.24.3-alpine3.21
+FROM golang:1.24.3-alpine3.21 AS build
 
 # Set destination for COPY
 WORKDIR /app
 
-# Download Go modules
-COPY go.mod go.sum ./
-RUN go mod download
+# Copy source code including subdirectories
+COPY . .
 
-RUN apk --no-cache add curl
-EXPOSE 8888
+RUN go mod download
 
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -o nx-s3-server
+
+FROM alpine:3.21
+COPY --from=build /app/nx-s3-server ./
+
+RUN apk --no-cache add curl
+EXPOSE 8888
 
 # Run
 CMD ["./nx-s3-server"]
