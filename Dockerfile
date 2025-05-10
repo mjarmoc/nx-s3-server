@@ -13,6 +13,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o nx-s3-server
 
 FROM alpine:3.21
 COPY --from=build /app/nx-s3-server ./
+COPY ./config/*.yaml ./config/
 
 RUN apk --no-cache add curl
 EXPOSE 8888
