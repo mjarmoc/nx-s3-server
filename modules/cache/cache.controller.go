@@ -14,7 +14,7 @@ type CacheController struct{}
 
 func (c CacheController) List(ctx *gin.Context) {
 	svc := s3.GetService()
-	files, err := svc.List()
+	files, err := svc.List(ctx.Request.Context())
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
@@ -25,7 +25,7 @@ func (c CacheController) List(ctx *gin.Context) {
 func (c CacheController) Retrieve(ctx *gin.Context) {
 	hash := ctx.Param("hash")
 	svc := s3.GetService()
-	file, err := svc.Get(hash)
+	file, err := svc.Get(ctx, hash)
 	if err != nil {
 		switch err.(type) {
 			case *s3.CacheNotFoundError:
@@ -49,7 +49,7 @@ func (c CacheController) Save(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	output, err := svc.Upload(hash, b)
+	output, err := svc.Upload(ctx, hash, b)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
