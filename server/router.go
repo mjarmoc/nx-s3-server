@@ -15,8 +15,8 @@ func NewRouter() *gin.Engine {
 	router.Use(middlewares.AuthMiddleware())
 
 	v1 := router.Group("v1")
-	health.NewHealth(new (health.HealthController), v1)
-	cache.NewCache(new (cache.CacheController), v1)
+	health.NewHealth(new(health.HealthController), v1)
+	cache.NewCache(new(cache.CacheController), v1)
 	return router
 
 }

@@ -9,8 +9,7 @@ import (
 	"github.com/mjarmoc/nx-s3-server/config"
 )
 
-
-func Init() {	
+func Init() {
 	ctx := context.Background()
 	sdkConfig := createSdkConfig(ctx)
 	service = &S3{client: s3.NewFromConfig(sdkConfig, func(o *s3.Options) {

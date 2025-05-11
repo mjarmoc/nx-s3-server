@@ -23,5 +23,5 @@ func main() {
 	flag.Parse()
 	config.Init(*environment)
 	aws.Init()
-	server.Init() 
+	server.Init()
 }
