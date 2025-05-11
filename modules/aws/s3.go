@@ -34,7 +34,7 @@ func (s S3) List(ctx context.Context) (*s3.ListObjectsV2Output, error) {
 	return file, nil
 }
 
-func (s S3) Get(ctx context.Context, hash string) ([]byte, error) {
+func (s S3) Get(ctx context.Context, hash string) (*[]byte, error) {
 	bucket:= config.GetConfig().GetString("aws.bucket")
 	input := s3.GetObjectInput{Key: aws.String(hash), Bucket: aws.String(bucket)}
 	output, err := s.client.GetObject(ctx, &input)
@@ -53,15 +53,15 @@ func (s S3) Get(ctx context.Context, hash string) ([]byte, error) {
 	if err2 !=nil {
 		return nil, err
 	}
-	return file, nil
+	return &file, nil
 }
 
-func (s S3) Upload(ctx context.Context, hash string, file []byte) (*s3.PutObjectOutput, error) {
+func (s S3) Upload(ctx context.Context, hash string, file *bytes.Reader) (*s3.PutObjectOutput, error) {
 	bucket:= config.GetConfig().GetString("aws.bucket")
 	input := s3.PutObjectInput{
 		Key: aws.String(hash), 
 		Bucket: aws.String(bucket),
-		Body: bytes.NewReader(file),
+		Body: file,
 	}
 	output, err := s.client.PutObject(ctx, &input)
 	if err !=nil {

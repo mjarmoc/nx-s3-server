@@ -1,6 +1,7 @@
 package cache
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"net/http"
@@ -25,7 +26,7 @@ func (c CacheController) List(ctx *gin.Context) {
 func (c CacheController) Retrieve(ctx *gin.Context) {
 	hash := ctx.Param("hash")
 	svc := s3.GetService()
-	file, err := svc.Get(ctx, hash)
+	file, err := svc.Get(ctx.Request.Context(), hash)
 	if err != nil {
 		switch err.(type) {
 			case *s3.CacheNotFoundError:
@@ -36,7 +37,7 @@ func (c CacheController) Retrieve(ctx *gin.Context) {
 			return	
 		}
 	}
-	ctx.Data(http.StatusOK, "application/octet-stream", file)
+	ctx.Data(http.StatusOK, "application/octet-stream", *file)
 }
 
 func (c CacheController) Save(ctx *gin.Context) {
@@ -49,7 +50,8 @@ func (c CacheController) Save(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	output, err := svc.Upload(ctx, hash, b)
+	reader := bytes.NewReader(b);
+	output, err := svc.Upload(ctx.Request.Context(), hash, reader)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
