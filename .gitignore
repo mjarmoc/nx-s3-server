@@ -1,0 +1,8 @@
+.swp
+config/production.yaml
+build/
+Godeps/
+!Godeps/Godeps.json
+tmp/
+nx-s3-server
+.DS_Store
